@@ -1,41 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<meta charset="UTF-8">
-<title>Verktøy-quiz</title>
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f2f2f2;
-  padding: 20px;
-}
-img {
-  max-width: 300px;
-  margin: 20px 0;
-}
-button {
-  display: block;
-  margin: 10px auto;
-  padding: 12px;
-  width: 250px;
-  font-size: 16px;
-}
-#result {
-  font-weight: bold;
-  font-size: 18px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Verktøy-quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+    img {
+      max-width: 300px;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 20px;
+      font-size: 16px;
+      width: 250px;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
 </head>
-
 <body>
 
 <h1>🔧 Hva heter verktøyet?</h1>
 <p id="progress"></p>
 
-<img id="toolImage" src="" alt="Verktøy">
+<img id="image" src="" alt="Verktøy">
 
 <div id="answers"></div>
 
@@ -44,26 +45,27 @@ button {
 
 <script>
 const quiz = [
-  { img:"images/hammer.jpg", correct:"Hammer", answers:["Hammer","Tang","Øks","Skrutrekker"] },
-  { img:"images/skrutrekker.jpg", correct:"Skrutrekker", answers:["Bor","Skrutrekker","Kniv","Tang"] },
-  { img:"images/tang.jpg", correct:"Tang", answers:["Tang","Saks","Tvinge","Skralle"] },
-  { img:"images/skiftenokkel.jpg", correct:"Skiftenøkkel", answers:["Fastnøkkel","Skiftenøkkel","Pipenøkkel","Umbrako"] },
-  { img:"images/fastnokkel.jpg", correct:"Fastnøkkel", answers:["Fastnøkkel","Skralle","Tang","Vinkel"] },
-  { img:"images/umbrako.jpg", correct:"Unbrakonøkkel", answers:["Unbrakonøkkel","Fastnøkkel","Skralle","Skrutrekker"] },
-  { img:"images/skralle.jpg", correct:"Skralle", answers:["Skralle","Tang","Fastnøkkel","Hammer"] },
-  { img:"images/handsag.jpg", correct:"Håndsag", answers:["Håndsag","Baufil","Kniv","Fil"] },
-  { img:"images/baufil.png", correct:"Baufil", answers:["Håndsag","Baufil","Kniv","Fil"] },
-  { img:"images/handfil.jpg", correct:"Håndfil", answers:["Håndfil","Meisel","Kniv","Sag"] },
-  { img:"images/kniv.jpg", correct:"Kniv", answers:["Kniv","Fil","Meisel","Saks"] },
-  { img:"images/saks.jpg", correct:"Saks", answers:["Saks","Tang","Kniv","Tvinge"] },
-  { img:"images/bor.jpg", correct:"Bor", answers:["Bor","Skrutrekker","Spiker","Meisel"] },
-  { img:"images/maleband.jpg", correct:"Målebånd", answers:["Målebånd","Linjal","Vater","Vinkel"] },
-  { img:"images/linjal.jpg", correct:"Linjal", answers:["Linjal","Vater","Målebånd","Vinkel"] },
-  { img:"images/vater.png", correct:"Vater", answers:["Vater","Vinkel","Linjal","Målebånd"] },
-  { img:"images/vinkel.jpg", correct:"Vinkel", answers:["Vinkel","Linjal","Vater","Skyvelære"] },
-  { img:"images/skyvelaer.jpg", correct:"Skyvelære", answers:["Skyvelære","Linjal","Vater","Målebånd"] },
-  { img:"images/tvinge.jpg", correct:"Tvinge", answers:["Tvinge","Tang","Skralle","Skrutrekker"] },
-  { img:"images/oks.jpg", correct:"Øks", answers:["Øks","Hammer","Sag","Meisel"] }
+  { img: "baufil.png", correct: "Baufil", answers: ["Baufil", "Håndsag", "Fil", "Kniv"] },
+  { img: "bor.jpg", correct: "Bor", answers: ["Bor", "Skrutrekker", "Spiker", "Bits"] },
+  { img: "fastnokkel.jpg", correct: "Fastnøkkel", answers: ["Fastnøkkel", "Skiftenøkkel", "Tang", "Skrallenøkkel"] },
+  { img: "hamvinkel.jpg", correct: "Vinkel", answers: ["Vinkel", "Linjal", "Vater", "Skyvelære"] },
+  { img: "mer.jpg", correct: "Meisel", answers: ["Meisel", "Fil", "Kniv", "Skrutrekker"] },
+  { img: "handfil.jpg", correct: "Fil", answers: ["Fil", "Sag", "Meisel", "Kniv"] },
+  { img: "hankniv.jpg", correct: "Kniv", answers: ["Kniv", "Stanleykniv", "Meisel", "Saks"] },
+  { img: "dsag.jpg", correct: "Sag", answers: ["Sag", "Baufil", "Fil", "Øks"] },
+  { img: "linjal.jpg", correct: "Linjal", answers: ["Linjal", "Målebånd", "Vater", "Skyvelære"] },
+  { img: "maleband.jpg", correct: "Målebånd", answers: ["Målebånd", "Linjal", "Skyvelære", "Vinkel"] },
+
+  { img: "oks.jpg", correct: "Øks", answers: ["Øks", "Hammer", "Sag", "Meisel"] },
+  { img: "saks.jpg", correct: "Saks", answers: ["Saks", "Tang", "Kniv", "Fil"] },
+  { img: "skralle.jpg", correct: "Skrallenøkkel", answers: ["Skrallenøkkel", "Fastnøkkel", "Skiftenøkkel", "Tang"] },
+  { img: "skiftenokkel.jpg", correct: "Skiftenøkkel", answers: ["Skiftenøkkel", "Fastnøkkel", "Tang", "Skrallenøkkel"] },
+  { img: "skrutrekker.jpg", correct: "Skrutrekker", answers: ["Skrutrekker", "Bor", "Meisel", "Tang"] },
+  { img: "skyveler.jpg", correct: "Skyvelære", answers: ["Skyvelære", "Linjal", "Målebånd", "Vater"] },
+  { img: "tangumbrako.jpg", correct: "Unbrakonøkkel", answers: ["Unbrakonøkkel", "Tang", "Fastnøkkel", "Skiftenøkkel"] },
+  { img: "vater.png", correct: "Vater", answers: ["Vater", "Linjal", "Vinkel", "Målebånd"] },
+  { img: "pg.jpg", correct: "Hammer", answers: ["Hammer", "Øks", "Meisel", "Tang"] },
+  { img: "tvinge.jpg", correct: "Tvinge", answers: ["Tvinge", "Tang", "Skrustikke", "Klype"] }
 ];
 
 let index = 0;
@@ -71,34 +73,36 @@ let score = 0;
 
 function loadQuestion() {
   const q = quiz[index];
-  document.getElementById("toolImage").src = q.img;
+  document.getElementById("image").src = q.img;
   document.getElementById("progress").textContent =
     `Spørsmål ${index + 1} av ${quiz.length}`;
   document.getElementById("result").textContent = "";
 
-  const a = document.getElementById("answers");
-  a.innerHTML = "";
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
 
-  q.answers.sort(() => Math.random() - 0.5).forEach(ans => {
+  q.answers.sort(() => Math.random() - 0.5).forEach(a => {
     const btn = document.createElement("button");
-    btn.textContent = ans;
-    btn.onclick = () => check(ans);
-    a.appendChild(btn);
+    btn.textContent = a;
+    btn.onclick = () => checkAnswer(a);
+    answersDiv.appendChild(btn);
   });
 }
 
-function check(ans) {
-  if (ans === quiz[index].correct) {
+function checkAnswer(answer) {
+  if (answer === quiz[index].correct) {
     score++;
     document.getElementById("result").textContent = "✅ Riktig!";
+    document.getElementById("result").style.color = "green";
   } else {
     document.getElementById("result").textContent =
-      "❌ Feil! Riktig svar er " + quiz[index].correct;
+      "❌ Feil! Riktig svar er: " + quiz[index].correct;
+    document.getElementById("result").style.color = "red";
   }
 
+  index++;
   document.getElementById("score").textContent = `Poeng: ${score}`;
 
-  index++;
   if (index < quiz.length) {
     setTimeout(loadQuestion, 1200);
   } else {
@@ -114,3 +118,4 @@ loadQuestion();
 
 </body>
 </html>
+
