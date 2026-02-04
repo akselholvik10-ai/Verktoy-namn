@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-
   <meta charset="UTF-8">
   <title>Verktøy-quiz</title>
   <style>
-  <img src="baufil.png">
     body {
       font-family: Arial, sans-serif;
       background: #f2f2f2;
@@ -47,27 +45,27 @@
 
 <script>
 const quiz = [
-  { img: "baufil.png", correct: "Baufil", answers: ["Baufil", "Håndsag", "Fil", "Kniv"] },
-  { img: "bor.jpg", correct: "Bor", answers: ["Bor", "Skrutrekker", "Spiker", "Bits"] },
-  { img: "fastnokkel.jpg", correct: "Fastnøkkel", answers: ["Fastnøkkel", "Skiftenøkkel", "Tang", "Skrallenøkkel"] },
-  { img: "hamvinkel.jpg", correct: "Vinkel", answers: ["Vinkel", "Linjal", "Vater", "Skyvelære"] },
-  { img: "mer.jpg", correct: "Meisel", answers: ["Meisel", "Fil", "Kniv", "Skrutrekker"] },
-  { img: "handfil.jpg", correct: "Fil", answers: ["Fil", "Sag", "Meisel", "Kniv"] },
-  { img: "hankniv.jpg", correct: "Kniv", answers: ["Kniv", "Stanleykniv", "Meisel", "Saks"] },
-  { img: "dsag.jpg", correct: "Sag", answers: ["Sag", "Baufil", "Fil", "Øks"] },
-  { img: "linjal.jpg", correct: "Linjal", answers: ["Linjal", "Målebånd", "Vater", "Skyvelære"] },
-  { img: "maleband.jpg", correct: "Målebånd", answers: ["Målebånd", "Linjal", "Skyvelære", "Vinkel"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/5/56/Hacksaw.jpg", correct: "Baufil", answers: ["Baufil", "Håndsag", "Fil", "Kniv"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Drill_bits.jpg", correct: "Bor", answers: ["Bor", "Skrutrekker", "Spiker", "Bits"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Open-end_wrench.jpg", correct: "Fastnøkkel", answers: ["Fastnøkkel", "Skiftenøkkel", "Tang", "Skrallenøkkel"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Try_square.jpg", correct: "Vinkel", answers: ["Vinkel", "Linjal", "Vater", "Skyvelære"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Chisel.jpg", correct: "Meisel", answers: ["Meisel", "Fil", "Kniv", "Skrutrekker"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/5/5a/File_tool.jpg", correct: "Fil", answers: ["Fil", "Sag", "Meisel", "Kniv"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Utility_knife.jpg", correct: "Kniv", answers: ["Kniv", "Stanleykniv", "Meisel", "Saks"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/2/23/Hand_saw.jpg", correct: "Sag", answers: ["Sag", "Baufil", "Fil", "Øks"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Ruler.jpg", correct: "Linjal", answers: ["Linjal", "Målebånd", "Vater", "Skyvelære"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tape_measure.jpg", correct: "Målebånd", answers: ["Målebånd", "Linjal", "Skyvelære", "Vinkel"] },
 
-  { img: "oks.jpg", correct: "Øks", answers: ["Øks", "Hammer", "Sag", "Meisel"] },
-  { img: "saks.jpg", correct: "Saks", answers: ["Saks", "Tang", "Kniv", "Fil"] },
-  { img: "skralle.jpg", correct: "Skrallenøkkel", answers: ["Skrallenøkkel", "Fastnøkkel", "Skiftenøkkel", "Tang"] },
-  { img: "skiftenokkel.jpg", correct: "Skiftenøkkel", answers: ["Skiftenøkkel", "Fastnøkkel", "Tang", "Skrallenøkkel"] },
-  { img: "skrutrekker.jpg", correct: "Skrutrekker", answers: ["Skrutrekker", "Bor", "Meisel", "Tang"] },
-  { img: "skyveler.jpg", correct: "Skyvelære", answers: ["Skyvelære", "Linjal", "Målebånd", "Vater"] },
-  { img: "tangumbrako.jpg", correct: "Unbrakonøkkel", answers: ["Unbrakonøkkel", "Tang", "Fastnøkkel", "Skiftenøkkel"] },
-  { img: "vater.png", correct: "Vater", answers: ["Vater", "Linjal", "Vinkel", "Målebånd"] },
-  { img: "pg.jpg", correct: "Hammer", answers: ["Hammer", "Øks", "Meisel", "Tang"] },
-  { img: "tvinge.jpg", correct: "Tvinge", answers: ["Tvinge", "Tang", "Skrustikke", "Klype"] }
+  { img: "https://upload.wikimedia.org/wikipedia/commons/6/60/Axe.jpg", correct: "Øks", answers: ["Øks", "Hammer", "Sag", "Meisel"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Scissors.jpg", correct: "Saks", answers: ["Saks", "Tang", "Kniv", "Fil"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Socket_wrench.jpg", correct: "Skrallenøkkel", answers: ["Skrallenøkkel", "Fastnøkkel", "Skiftenøkkel", "Tang"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Adjustable_wrench.jpg", correct: "Skiftenøkkel", answers: ["Skiftenøkkel", "Fastnøkkel", "Tang", "Skrallenøkkel"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Screwdriver.jpg", correct: "Skrutrekker", answers: ["Skrutrekker", "Bor", "Meisel", "Tang"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/1/19/Caliper.jpg", correct: "Skyvelære", answers: ["Skyvelære", "Linjal", "Målebånd", "Vater"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Allen_keys.jpg", correct: "Unbrakonøkkel", answers: ["Unbrakonøkkel", "Tang", "Fastnøkkel", "Skiftenøkkel"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Spirit_level.jpg", correct: "Vater", answers: ["Vater", "Linjal", "Vinkel", "Målebånd"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Hammer.jpg", correct: "Hammer", answers: ["Hammer", "Øks", "Meisel", "Tang"] },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Clamp.jpg", correct: "Tvinge", answers: ["Tvinge", "Tang", "Skrustikke", "Klype"] }
 ];
 
 let index = 0;
@@ -116,12 +114,7 @@ function checkAnswer(answer) {
 }
 
 loadQuestion();
-
+</script>
 
 </body>
 </html>
-
-
-
-
-
